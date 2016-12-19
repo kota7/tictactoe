@@ -12,4 +12,6 @@ knitr::opts_chunk$set(
 )
 ```
 
+[![Build Status](https://travis-ci.org/kota7/tictactoe.svg?branch=master)](https://travis-ci.org/kota7/tictactoe)
+
 # tictactoe: Play Tic-Tac-Toe Game on R
