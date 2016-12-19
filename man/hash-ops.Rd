@@ -28,8 +28,8 @@ haskey(x, ...)
 \value{
 \itemize{
   \item{\code{haskey} returns a logical}
-  \item{\code{setvalues} returns a reference to the object}
-  \item{\code{getvalues} returns a value}
+  \item{\code{`[`} returns a reference to the object}
+  \item{\code{`[<-`} returns a value}
 }
 }
 \description{

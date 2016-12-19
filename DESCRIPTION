@@ -10,9 +10,10 @@ Description:
   Play and Learn Tic-Tac-Toe Game.
 License: MIT + file LICENSE
 LazyData: TRUE
+RoxygenNote: 5.0.1
 Imports:
   hash
-Suggets:
+Suggests: 
+  testthat,
   combiter
-RoxygenNote: 5.0.1
-Suggests: testthat
+

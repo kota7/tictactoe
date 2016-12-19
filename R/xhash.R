@@ -79,25 +79,25 @@ xhash <- function(
 #' @return
 #' \itemize{
 #'   \item{\code{haskey} returns a logical}
-#'   \item{\code{setvalues} returns a reference to the object}
-#'   \item{\code{getvalues} returns a value}
+#'   \item{\code{`[`} returns a reference to the object}
+#'   \item{\code{`[<-`} returns a value}
 #' }
 
 
 #' @export
-#' @name hash-ops
+#' @rdname hash-ops
 haskey <- function(x, ...) { UseMethod("haskey") }
 
 #' @export
-#' @name hash-ops
+#' @rdname hash-ops
 `[.xhash` <- function(x, state, ...) x$getvalue(state, ...)
 
 #' @export
-#' @name hash-ops
+#' @rdname hash-ops
 `[<-.xhash` <- function(x, state, ..., value) x$setvalue(state, value, ...)
 
 #' @export
-#' @name hash-ops
+#' @rdname hash-ops
 haskey.xhash <- function(x, state, ...) x$haskey(state, ...)
 
 
