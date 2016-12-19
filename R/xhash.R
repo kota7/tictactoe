@@ -18,19 +18,21 @@ xhash <- function(
   convfunc_vec = function(states, ...) unlist(Map(convfunc, states, ...)),
   default_value = NULL)
 {
-  hashtable <- hash()
+  hashtable <- hash::hash()
 
   ## single key operations
   haskey <- function(state, ...) {
-    has.key(convfunc(state, ...), hashtable)
+    hash::has.key(convfunc(state, ...), hashtable)
   }
 
   deletekey <- function(state, ...) {
-    del(convfunc(state, ...), hashtable)
+    hash::del(convfunc(state, ...), hashtable)
+    invisible(self)
   }
 
   setvalue <- function(state, value, ...) {
     hashtable[[convfunc(state, ...)]] <<- value
+    invisible(self)
   }
 
   getvalue <- function(state, ...) {
@@ -41,22 +43,24 @@ xhash <- function(
 
   ## multiple value operations
   haskeys <- function(states, ...) {
-    has.key(convfunc_vec(states, ...), hashtable)
+    hash::has.key(convfunc_vec(states, ...), hashtable)
   }
 
   deletekeys <- function(states, ...) {
-    del(convfunc(states, ...), hashtable)
+    hash::del(convfunc(states, ...), hashtable)
+    invisible(self)
   }
 
   setvalues <- function(states, values, ...) {
     hashtable[convfunc_vec(states, ...)] <<- values
+    invisible(self)
   }
 
   getvalues <- function(states, ...) {
     keys <- convfunc_vec(states, ...)
     out <- lapply(keys, function(k) default_value)
-    flg <- has.key(keys, hashtable)
-    out[flg] <- values(hashtable, keys[flg])
+    flg <- hash::has.key(keys, hashtable)
+    out[flg] <- hash::values(hashtable, keys[flg])
     out
   }
 
@@ -66,5 +70,74 @@ xhash <- function(
 }
 
 
+#' Hash Operations for Single State
+#' @name hash-ops
+#' @param x object
+#' @param state state object
+#' @param ... additional arguments to determine the key
+#' @param value value to assign
+#' @return
+#' \itemize{
+#'   \item{\code{haskey} returns a logical}
+#'   \item{\code{setvalues} returns a reference to the object}
+#'   \item{\code{getvalues} returns a value}
+#' }
 
 
+#' @export
+#' @name hash-ops
+haskey <- function(x, ...) { UseMethod("haskey") }
+
+#' @export
+#' @name hash-ops
+`[.xhash` <- function(x, state, ...) x$getvalue(state, ...)
+
+#' @export
+#' @name hash-ops
+`[<-.xhash` <- function(x, state, ..., value) x$setvalue(state, value, ...)
+
+#' @export
+#' @name hash-ops
+haskey.xhash <- function(x, state, ...) x$haskey(state, ...)
+
+
+
+
+#' Vectorized Hash Operations
+#' @name vectorized-hash-ops
+#' @param x object
+#' @param states state object
+#' @param ...    additional arugments to determine the keys
+#' @param values values to assign
+#' @return
+#' \itemize{
+#'   \item{\code{haskeys} returns a logical vector}
+#'   \item{\code{setvalues} returns a reference to the object}
+#'   \item{\code{getvalues} returns a list of values}
+#' }
+
+#' @export
+#' @rdname vectorized-methods
+haskeys <- function(x, ...) { UseMethod("haskeys") }
+
+#' @export
+#' @rdname vectorized-methods
+setvalues <- function(x, ...) { UseMethod("setvalues") }
+
+#' @export
+#' @rdname vectorized-methods
+getvalues <- function(x, ...) { UseMethod("getvalues") }
+
+
+#' @export
+#' @rdname vectorized-methods
+getvalues.xhash <- function(x, states, ...) x$getvalues(states, ...)
+
+#' @export
+#' @rdname vectorized-methods
+setvalues.xhash <- function(x, states, values, ...)
+  x$setvalues(states, values, ...)
+
+#' @export
+#' @rdname vectorized-methods
+haskeys.xhash <- function(x, states, ...) x$haskeys(states, ...)

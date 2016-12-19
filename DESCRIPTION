@@ -1,15 +1,18 @@
 Package: tictactoe
 Type: Package
-Title: Tic Tack Toe Game
+Title: Tic-Tac-Toe Game
 Version: 0.1.0
 Authors@R: c(
   person("Kota", "Mori", email = "kmori05@gmail.com", role = c("aut", "cre"))
   )
 Maintainer: Kota Mori <kmori05@gmail.com>
-Description: More about what it does (maybe more than one line)
+Description: 
+  Play and Learn Tic-Tac-Toe Game.
 License: MIT + file LICENSE
 LazyData: TRUE
 Imports:
   hash
+Suggets:
+  combiter
 RoxygenNote: 5.0.1
 Suggests: testthat
