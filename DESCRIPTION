@@ -6,14 +6,15 @@ Authors@R: c(
   person("Kota", "Mori", email = "kmori05@gmail.com", role = c("aut", "cre"))
   )
 Maintainer: Kota Mori <kmori05@gmail.com>
-Description: 
+Description:
   Play and Learn Tic-Tac-Toe Game.
 License: MIT + file LICENSE
 LazyData: TRUE
 RoxygenNote: 5.0.1
 Imports:
-  hash
-Suggests: 
+  hash,
+  stats
+Suggests:
   testthat,
   combiter
 

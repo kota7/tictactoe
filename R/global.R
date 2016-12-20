@@ -1,0 +1,3 @@
+EMPTY <- 0L
+MARK1 <- 1L
+MARK2 <- 2L
