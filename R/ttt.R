@@ -40,7 +40,7 @@ ttt <- function(player1, player2)
                   game$result, winner$name))
     }
 
-    ans <- readline("one more game? (y/n) >")
+    ans <- readline("one more game? (y/n) > ")
     if (!(substring(ans, 1, 1) %in% c("y", "Y"))) break
     game$initialize()
   }
