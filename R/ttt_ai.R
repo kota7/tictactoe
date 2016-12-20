@@ -1,18 +1,30 @@
 #' Tic-Tac-Toe AI Player
 #' @param name player name
-#' @param value_func \code{xhash} object that maps game state onto value
-#' @param policy_func \code{xhash} object that maps game state onto action set
+#' @param level AI strength. must be Integer 0 (weekest) to 5 (strongest)
 #' @return \code{ttt_ai} object
 #' @export
-ttt_ai <- function(name = "ttt AI", value_func = NULL, policy_func = NULL)
+ttt_ai <- function(name = "ttt AI", level = 0L)
 {
-  if (is.null(value_func))
+  stopifnot(is.numeric(level))
+  stopifnot(length(level) >= 1)
+  if (length(level) > 1) {
+    warning("multiple levels supplied. Only the first element is used")
+    level <- level[1]
+  }
+  level <- as.integer(level)
+  if (level < 0 || level > 5)
+    stop("level must be 0 to 5")
+
+  if (level == 0) {
+    # random bot
     value_func <- xhash(function(state, ...) paste0(state, collapse = ""),
                         default_value = 0)
-  if (is.null(policy_func))
     policy_func <- xhash(function(state, ...) paste0(state, collapse = ""),
                          default_value = NULL)
-
+  } else {
+    value_func  <- trained_value_funcs[[level]]$clone()
+    policy_func <- trained_policy_funcs[[level]]$clone()
+  }
 
   getmove <- function(game)
   {

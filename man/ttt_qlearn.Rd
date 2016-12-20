@@ -5,7 +5,7 @@
 \title{Q-Learning to Train Tic-Tac-Toe AI}
 \usage{
 ttt_qlearn(player, N = 1000L, epsilon = 0.1, alpha = 0.8, gamma = 0.99,
-  sim_every = 250L, N_sim = 1000L, verbose = TRUE)
+  simulate = TRUE, sim_every = 250L, N_sim = 1000L, verbose = TRUE)
 }
 \arguments{
 \item{player}{AI player to train}
@@ -18,6 +18,8 @@ ttt_qlearn(player, N = 1000L, epsilon = 0.1, alpha = 0.8, gamma = 0.99,
 
 \item{gamma}{discount factor}
 
+\item{simulate}{if true, conduct simulation during training}
+
 \item{sim_every}{conduct simulation after this many episode}
 
 \item{N_sim}{number of simulation games}
@@ -25,7 +27,7 @@ ttt_qlearn(player, N = 1000L, epsilon = 0.1, alpha = 0.8, gamma = 0.99,
 \item{verbose}{if true, progress report is shown}
 }
 \value{
-\code{data.frame} of simulation outcomes
+\code{data.frame} of simulation outcomes if any
 }
 \description{
 Q-Learning to Train Tic-Tac-Toe AI

@@ -1,3 +1,3 @@
-#' @importFrom stats setNames
+#' @importFrom stats setNames runif
 NULL
 

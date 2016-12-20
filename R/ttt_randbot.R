@@ -4,7 +4,7 @@
 #' @return \code{ttt_randbot} object
 ttt_randbot <- function(name = "random AI")
 {
-  ttt_ai(name = name)
+  ttt_ai(name = name, level = 0)
 }
 
 

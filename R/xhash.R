@@ -64,6 +64,15 @@ xhash <- function(
     out
   }
 
+  clone <- function() {
+    out <- xhash(convfunc = convfunc,
+                 convfunc_vec = convfunc_vec,
+                 default_value = default_value)
+    out$hashtable <- hashtable
+    return(out)
+  }
+
+
   self <- environment()
   class(self) = "xhash"
   self

@@ -126,9 +126,11 @@ ttt_game <- function()
     history <<- rbind(history, c(nextmover, index))
 
     ## update result
-    if (check_win(nextmover)) result <<- nextmover
-    if (all(state > 0)) result <<- 0L
-
+    if (check_win(nextmover)) {
+      result <<- nextmover
+    } else {
+      if (all(state > 0)) result <<- 0L
+    }
     ## switch mover
     prevmover <<- nextmover
     nextmover <<- 3L - nextmover
@@ -158,21 +160,7 @@ ttt_game <- function()
     return(FALSE)
   }
 
-  equivalent_states <- function(...)
-  {
-    # returns all equivalent states
-    # at default, the current state is used
-    # may overload by providing "state = "
-    s1 <- state[3:1, 1:3]   # vertical flip
-    s2 <- state[1:3, 3:1]   # horizontal flip
-    s3 <- state[3:1, 3:1]
-    s4 <- t(state)          # transpose
 
-    s5 <- s4[3:1, 1:3]
-    s6 <- s4[1:3, 3:1]
-    s7 <- s4[3:1, 3:1]
-    unique(list(state, s1, s2, s3, s4, s5, s6, s7))
-  }
 
   self <- environment()
   class(self) <- "ttt_game"

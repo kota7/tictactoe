@@ -4,14 +4,12 @@
 \alias{ttt_ai}
 \title{Tic-Tac-Toe AI Player}
 \usage{
-ttt_ai(name = "ttt AI", value_func = NULL, policy_func = NULL)
+ttt_ai(name = "ttt AI", level = 0L)
 }
 \arguments{
 \item{name}{player name}
 
-\item{value_func}{\code{xhash} object that maps game state onto value}
-
-\item{policy_func}{\code{xhash} object that maps game state onto action set}
+\item{level}{AI strength. must be Integer 0 (weekest) to 5 (strongest)}
 }
 \value{
 \code{ttt_ai} object

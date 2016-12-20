@@ -4,17 +4,18 @@
 #' @param epsilon fraction of random exploration
 #' @param alpha learning rate
 #' @param gamma discount factor
+#' @param simulate if true, conduct simulation during training
 #' @param sim_every conduct simulation after this many episode
 #' @param N_sim number of simulation games
 #' @param verbose if true, progress report is shown
-#' @return \code{data.frame} of simulation outcomes
+#' @return \code{data.frame} of simulation outcomes if any
 #' @export
 #' @examples
 #' p <- ttt_ai()
 #' o <- ttt_qlearn(p, N = 200)
 ttt_qlearn <- function(player, N = 1000L,
                        epsilon = 0.1, alpha = 0.8, gamma = 0.99,
-                       sim_every = 250L, N_sim = 1000L,
+                       simulate = TRUE, sim_every = 250L, N_sim = 1000L,
                        verbose = TRUE)
 {
   game <- ttt_game()
@@ -22,7 +23,7 @@ ttt_qlearn <- function(player, N = 1000L,
   fmt <- sprintf("\rTraining ...%%%dd/%%%dd", nchar(N), nchar(N))
   for (count in 0:(N-1))
   {
-    if (count %% sim_every == 0) {
+    if (simulate && (count %% sim_every == 0)) {
       cat("\n")
       res <- ttt_simulate(player1 = player, player2 = player,
                           N = N_sim, verbose = verbose)
@@ -45,21 +46,26 @@ ttt_qlearn <- function(player, N = 1000L,
       choices <- game$legal_moves()
       possible_states <- lapply(choices, game$next_state)
       possible_values <- unlist(getvalues(player$value_func, possible_states))
+      if (game$nextmover == 1L) {
+        optim_actions <- choices[possible_values == max(possible_values)]
+      } else {
+        optim_actions <- choices[possible_values == min(possible_values)]
+      }
 
       ## update the value for all equivalent states
       cur_val <- player$value_func[game$state]
-      states <- game$equivalent_states(game$state)
+      equivalents <- equivalent_states_actions(game$state, optim_actions)
       ## first player maximizes the value, second minimizes the value
       if (game$nextmover == 1L) {
-        setvalues(player$value_func, states,
+        setvalues(player$value_func, equivalents$states,
                   (1-alpha)*cur_val + alpha*gamma*max(possible_values))
-        player$policy_func[game$state] <-
-          choices[possible_values == max(possible_values)]
+        setvalues(player$policy_func, equivalents$states,
+                  equivalents$actions)
       } else {
-        setvalues(player$value_func, states,
+        setvalues(player$value_func, equivalents$states,
                   (1-alpha)*cur_val + alpha*gamma*min(possible_values))
-        player$policy_func[game$state] <-
-                  choices[possible_values == min(possible_values)]
+        setvalues(player$policy_func, equivalents$states,
+                  equivalents$actions)
       }
 
       ## action is chosen by epsilon greedy
@@ -80,7 +86,7 @@ ttt_qlearn <- function(player, N = 1000L,
     }
     ## update the value of final state and equivalent states
     ## no need for policy since there is nothing to play
-    states <- game$equivalent_states(game$state)
+    states <- equivalent_states(game$state)
 
     if (game$result == 1L) {
       player$value_func[game$state] <- 100
@@ -91,5 +97,20 @@ ttt_qlearn <- function(player, N = 1000L,
     }
   }
   if (verbose) cat("\n")
+
+  ## simulate with the last outcome
+  if (simulate) {
+    cat("\n")
+    res <- ttt_simulate(player1 = player, player2 = player,
+                        N = N_sim, verbose = verbose)
+    if (verbose) {
+      print(prop.table(table(res)))
+      cat("\n")
+    }
+    out <- rbind(out,
+                 cbind(data.frame(n_train = count, n_sim = N_sim),
+                       data.frame(prop.table(table(res)))))
+  }
+
   return(out)
 }
