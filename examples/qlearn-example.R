@@ -21,5 +21,5 @@ ggplot(dat, aes(n_train, frac, linetype = result, shape = result)) +
   geom_point(size = 1.5, color = "grey10") +
   xlab("number of training") + ylab("fraction") +
   theme_bw()
-ggsave("examples/ttt-qlearn.pdf", width = 10, height = 6)
-ggsave("examples/ttt-qlearn.png", width = 10, height = 6)
+ggsave("examples/ttt-qlearn.pdf", width = 8, height = 4)
+ggsave("examples/ttt-qlearn.png", width = 8, height = 4)

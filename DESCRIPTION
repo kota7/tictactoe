@@ -16,5 +16,10 @@ Imports:
   stats
 Suggests:
   testthat,
-  combiter
+  combiter,
+  dplyr,
+  tidyr,
+  reshape2,
+  ggplot2
+
 
