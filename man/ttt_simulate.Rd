@@ -4,7 +4,8 @@
 \alias{ttt_simulate}
 \title{Simulate Tic-Tac-Toe Games between AIs}
 \usage{
-ttt_simulate(player1, player2 = player1, N = 1000L, verbose = TRUE)
+ttt_simulate(player1, player2 = player1, N = 1000L, verbose = TRUE,
+  showboard = FALSE, pauseif = integer(0))
 }
 \arguments{
 \item{player1, player2}{AI players to simulate}
@@ -12,6 +13,10 @@ ttt_simulate(player1, player2 = player1, N = 1000L, verbose = TRUE)
 \item{N}{number simulation games}
 
 \item{verbose}{if true, show progress report}
+
+\item{showboard}{if true, game transition is displayed}
+
+\item{pauseif}{pause the simulation when specified results occur}
 }
 \value{
 integer vector of simulation outcomes

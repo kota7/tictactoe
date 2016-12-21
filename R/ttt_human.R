@@ -1,4 +1,5 @@
 #' Human Tic-Tac-Toe Player
+#' @description Create an human tic-tac-toe player
 #' @param name player name
 #' @export
 #' @return \code{ttt_human} object

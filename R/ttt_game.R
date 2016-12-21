@@ -84,6 +84,20 @@ ttt_game <- function()
     return(0L)
   }
 
+  index_to_str <- function(action)
+  {
+    # convert action into string form like "A1"
+    # if the input is invalid, return "  "
+    action <- to_index(action)
+    action <- as.integer(action)
+    i <- 1L + ((action - 1L) %% 3)
+    j <- 1L + ((action - 1L) %/% 3)
+    if (is.na(i) || is.na(j)) return("  ")
+    if (i < 1 || j < 1 || i > 3 || j > 3) return("  ")
+    sprintf("%s%d", intToUtf8(i + 64L), j)
+  }
+
+
   is_legal <- function(position)
   {
     ## check if a move is legal

@@ -4,10 +4,12 @@
 \alias{ttt}
 \title{Play Tic-Tac-Toe Game}
 \usage{
-ttt(player1, player2)
+ttt(player1, player2, sleep = 0.5)
 }
 \arguments{
 \item{player1, player2}{objects that inherit \code{ttt_player} class}
+
+\item{sleep}{interval to take before an AI player to make decision, in second}
 }
 \description{
 Play Tic-Tac-Toe Game

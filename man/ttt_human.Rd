@@ -13,6 +13,6 @@ ttt_human(name = "no name")
 \code{ttt_human} object
 }
 \description{
-Human Tic-Tac-Toe Player
+Create an human tic-tac-toe player
 }
 

@@ -1,11 +1,12 @@
 #' Play Tic-Tac-Toe Game
 #' @param player1,player2 objects that inherit \code{ttt_player} class
+#' @param sleep interval to take before an AI player to make decision, in second
 #' @export
 #' @examples
 #' \dontrun{
 #' ttt(ttt_human(), ttt_randbot())
 #' }
-ttt <- function(player1, player2)
+ttt <- function(player1, player2, sleep = 0.5)
 {
   stopifnot(inherits(player1, "ttt_player"))
   stopifnot(inherits(player2, "ttt_player"))
@@ -22,11 +23,12 @@ ttt <- function(player1, player2)
       ## obtain action
       while (TRUE)
       {
+        if (inherits(p, "ttt_ai")) Sys.sleep(sleep)
         action <- p$getmove(game)
         if (action == "quit") return()
         if (game$is_legal(action)) break
       }
-      cat(" action =", action, "\n")
+      cat(" action =", game$index_to_str(action), "\n")
 
       game$play(action)
     }

@@ -1,7 +1,9 @@
 #' Tic-Tac-Toe AI Player
+#' @description Create an AI tic-tac-toe game player
 #' @param name player name
 #' @param level AI strength. must be Integer 0 (weekest) to 5 (strongest)
 #' @return \code{ttt_ai} object
+#' @details \code{ttt_randbot} is an alias of \code{ttt_ai(level = 0)}.
 #' @export
 ttt_ai <- function(name = "ttt AI", level = 0L)
 {
@@ -47,4 +49,16 @@ ttt_ai <- function(name = "ttt AI", level = 0L)
 #' @export
 print.ttt_ai <- function(x, ...)
   cat("AI Tic-Tac-Toe Player:", x$name, "\n")
+
+
+
+
+#' @export
+#' @rdname ttt_ai
+ttt_randbot <- function(name = "random AI")
+{
+  ttt_ai(name = name, level = 0)
+}
+
+
 

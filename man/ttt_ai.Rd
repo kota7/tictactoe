@@ -2,9 +2,12 @@
 % Please edit documentation in R/ttt_ai.R
 \name{ttt_ai}
 \alias{ttt_ai}
+\alias{ttt_randbot}
 \title{Tic-Tac-Toe AI Player}
 \usage{
 ttt_ai(name = "ttt AI", level = 0L)
+
+ttt_randbot(name = "random AI")
 }
 \arguments{
 \item{name}{player name}
@@ -15,6 +18,9 @@ ttt_ai(name = "ttt AI", level = 0L)
 \code{ttt_ai} object
 }
 \description{
-Tic-Tac-Toe AI Player
+Create an AI tic-tac-toe game player
+}
+\details{
+\code{ttt_randbot} is an alias of \code{ttt_ai(level = 0)}.
 }
 
