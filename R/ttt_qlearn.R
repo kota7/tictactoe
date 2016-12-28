@@ -129,13 +129,10 @@ ttt_qlearn <- function(player, N = 1000L,
 
     if (game$result == 1L) {
       setvalues(player$value_func, states, 100)
-      #player$value_func[game$state] <- 100
     } else if (game$result == 2L) {
       setvalues(player$value_func, states, -100)
-      #player$value_func[game$state] <- -100
     } else {
       setvalues(player$value_func, states, 0)
-      #player$value_func[game$state] <- 0
     }
   }
   if (verbose) cat("\n")
