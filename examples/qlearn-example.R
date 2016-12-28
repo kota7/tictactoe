@@ -6,7 +6,7 @@ library(tictactoe)
 
 set.seed(123)
 
-p <- ttt_ai()
+p <- ttt_random()
 o <- ttt_qlearn(p, N = 5000)
 
 dat <- select(o, -n_sim) %>%

@@ -2,7 +2,7 @@
 % Please edit documentation in R/ttt_qlearn.R
 \name{ttt_qlearn}
 \alias{ttt_qlearn}
-\title{Q-Learning to Train Tic-Tac-Toe AI}
+\title{Q-Learning for Train Tic-Tac-Toe AI}
 \usage{
 ttt_qlearn(player, N = 1000L, epsilon = 0.1, alpha = 0.8, gamma = 0.99,
   simulate = TRUE, sim_every = 250L, N_sim = 1000L, verbose = TRUE)
@@ -12,7 +12,7 @@ ttt_qlearn(player, N = 1000L, epsilon = 0.1, alpha = 0.8, gamma = 0.99,
 
 \item{N}{number of episode, i.e. training games}
 
-\item{epsilon}{fraction of random exploration}
+\item{epsilon}{fraction of random exploration move}
 
 \item{alpha}{learning rate}
 
@@ -20,20 +20,56 @@ ttt_qlearn(player, N = 1000L, epsilon = 0.1, alpha = 0.8, gamma = 0.99,
 
 \item{simulate}{if true, conduct simulation during training}
 
-\item{sim_every}{conduct simulation after this many episode}
+\item{sim_every}{conduct simulation after this many training games}
 
 \item{N_sim}{number of simulation games}
 
 \item{verbose}{if true, progress report is shown}
 }
 \value{
-\code{data.frame} of simulation outcomes if any
+\code{data.frame} of simulation outcomes, if any
 }
 \description{
-Q-Learning to Train Tic-Tac-Toe AI
+Train a tic-tac-toe AI through Q-learning
+}
+\details{
+This function implements Q-learning to train a tic-tac-toe AI player.
+It is designed to train one AI player, which plays against itself to update its
+value and policy functions.
+
+The employed algorithm is Q-learning with epsilon greedy.
+For each state \eqn{s}, the player updates its value evaluation by
+\deqn{V(s) <- (1-\alpha) V(s) + \alpha \gamma max_s' V(s')}
+if it is the first player's turn.  If it is the other player's turn, replace
+\eqn{max} by \eqn{min}.
+Note that \eqn{s'} spans all possible states you can reach from \eqn{s}.
+The policy function is also updated analogously, that is, the set of
+actions to reach \eqn{s'} that maximizes \eqn{V(s')}.
+The parameter \eqn{\alpha} controls the learning rate, and \eqn{gamma} is
+the discount factor (earlier win is better than later).
+
+Then the player chooses the next action by \eqn{\epsilon}-greedy method;
+Follow its policy with probability \eqn{1-\epsilon}, and choose random
+action with probability \eqn{\epsilon}.  \eqn{\epsilon} controls
+the ratio explorative moves.
+
+At the end of game, the player set the value of the final state either to
+100 (if the first player wins), -100 (if the second player wins), or
+0 (if draw).
+
+This learning process is repeated for \code{N} training games.
+When \code{simulate} is set true, simulation is conducted after
+\code{sim_every} training games.
+This would be usefule for observing the progress of training.
+In general, as the AI gets smarter, the game tends to result in draw more.
+
+See Sutton and Barto (1998) for more about the Q-learning.
 }
 \examples{
 p <- ttt_ai()
 o <- ttt_qlearn(p, N = 200)
+}
+\references{
+Sutton, Richard S and Barto, Andrew G. Reinforcement Learning: An Introduction. The MIT Press (1998)
 }
 

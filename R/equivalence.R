@@ -2,7 +2,8 @@
 #' @description Returns a set of equivalent states and actions
 #' @param state state, 3x3 matrix
 #' @export
-#' @return list of state matrices
+#' @return
+#' \code{equivalent_states} returns a list of state matrices
 equivalent_states <- function(state)
 {
   # returns all equivalent states
@@ -21,8 +22,9 @@ equivalent_states <- function(state)
 #' @param action integer vector of indices (1 to 9)
 #' @export
 #' @rdname equivalent_states
-#' @return list of two lists. \code{states} is the set of equivalent states
-#' \code{actions} is the set of equivalent actions
+#' @return \code{equivalent_states_actions} returns a list of two lists:
+#' \code{states}, the set of equivalent states and
+#' \code{actions}, the set of equivalent actions
 equivalent_states_actions <- function(state, action)
 {
   # returns all equivalent states and actions

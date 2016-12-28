@@ -1,13 +1,14 @@
 Package: tictactoe
 Type: Package
 Title: Tic-Tac-Toe Game
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: c(
   person("Kota", "Mori", email = "kmori05@gmail.com", role = c("aut", "cre"))
   )
 Maintainer: Kota Mori <kmori05@gmail.com>
 Description:
-  Play and Learn Tic-Tac-Toe Game.
+  Implements tic-tac-toe game to play on console, either with human or AI players.
+  Various levels of AI players are trained through the Q-learning algorithm.
 License: MIT + file LICENSE
 LazyData: TRUE
 RoxygenNote: 5.0.1

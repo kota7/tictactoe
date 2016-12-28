@@ -3,7 +3,21 @@
 #' @param name player name
 #' @param level AI strength. must be Integer 0 (weekest) to 5 (strongest)
 #' @return \code{ttt_ai} object
-#' @details \code{ttt_randbot} is an alias of \code{ttt_ai(level = 0)}.
+#' @details \code{level} argument controls the strength of AI, from
+#' 0 (weekest) to 5 (strongest).
+#' \code{ttt_random} is an alias of \code{ttt_ai(level = 0)}.
+#'
+#' A \code{ttt_ai} object has the \code{getmove} function, which takes
+#' \code{ttt_game} object and returns a move considered as optimal.
+#' \code{getmove} function is designed to take a \code{ttt_game} object
+#' and returns a move using the policy function.
+#'
+#' The object has the value and policy functions.
+#' The value function maps a game state
+#' to the evaluation from the first player's viewpoint.
+#' The policy function maps a game state to a set of
+#' optimal moves in light of the value evaluation.
+#' The functions have been trained through the Q-learning.
 #' @export
 ttt_ai <- function(name = "ttt AI", level = 0L)
 {
@@ -28,7 +42,7 @@ ttt_ai <- function(name = "ttt AI", level = 0L)
     policy_func <- trained_policy_funcs[[level]]$clone()
   }
 
-  getmove <- function(game)
+  getmove <- function(game, ...)
   {
     opt_acts <- unlist(policy_func[game$state])
     if (is.null(opt_acts)) {
@@ -55,7 +69,7 @@ print.ttt_ai <- function(x, ...)
 
 #' @export
 #' @rdname ttt_ai
-ttt_randbot <- function(name = "random AI")
+ttt_random <- function(name = "random AI")
 {
   ttt_ai(name = name, level = 0)
 }

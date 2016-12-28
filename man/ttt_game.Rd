@@ -10,7 +10,7 @@ ttt_game()
 \code{ttt_game} object
 }
 \description{
-Tic-Tac-Toe Game
+Object that encapsulates a tic-tac-toe game.
 }
 \examples{
 x <- ttt_game()

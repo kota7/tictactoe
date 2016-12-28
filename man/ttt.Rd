@@ -4,7 +4,7 @@
 \alias{ttt}
 \title{Play Tic-Tac-Toe Game}
 \usage{
-ttt(player1, player2, sleep = 0.5)
+ttt(player1 = ttt_human(), player2 = ttt_human(), sleep = 0.5)
 }
 \arguments{
 \item{player1, player2}{objects that inherit \code{ttt_player} class}
@@ -12,11 +12,32 @@ ttt(player1, player2, sleep = 0.5)
 \item{sleep}{interval to take before an AI player to make decision, in second}
 }
 \description{
-Play Tic-Tac-Toe Game
+Start tic-tac-toe game on the console.
+}
+\details{
+At default, the game is played between humans.
+Set \code{player1} or \code{player2} to \code{ttt_ai()} to play against
+an AI player.
+The strength of the AI can be adjusted by passing the \code{level}
+argument (0 (weekest) to 5 (strongest)) to the \code{ttt_ai} function.
+
+To input your move, type the position like "a1". Only two-length string
+consisting of an alphabet and a digit is accepted.  Type "exit" to
+finish the game.
+
+You may set both \code{player1} and \code{player2} as AI players.
+In this case, the game transition is displayed on the console without
+human inputs.
+For conducting a large sized simulations of games between AIs, refer to
+\code{\link{ttt_simulate}}
 }
 \examples{
 \dontrun{
-ttt(ttt_human(), ttt_randbot())
+ttt(ttt_human(), ttt_random())
 }
+}
+\seealso{
+\code{\link{ttt_ai}}, \code{\link{ttt_human}},
+\code{\link{ttt_simulate}}
 }
 

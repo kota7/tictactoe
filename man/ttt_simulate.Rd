@@ -10,13 +10,14 @@ ttt_simulate(player1, player2 = player1, N = 1000L, verbose = TRUE,
 \arguments{
 \item{player1, player2}{AI players to simulate}
 
-\item{N}{number simulation games}
+\item{N}{number of simulation games}
 
 \item{verbose}{if true, show progress report}
 
 \item{showboard}{if true, game transition is displayed}
 
-\item{pauseif}{pause the simulation when specified results occur}
+\item{pauseif}{pause the simulation when specified results occur.
+This can be useful for explorative purposes.}
 }
 \value{
 integer vector of simulation outcomes

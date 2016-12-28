@@ -1,4 +1,5 @@
 #' Tic-Tac-Toe Game
+#' @description Object that encapsulates a tic-tac-toe game.
 #' @export
 #' @return \code{ttt_game} object
 #' @examples
@@ -94,7 +95,7 @@ ttt_game <- function()
     j <- 1L + ((action - 1L) %/% 3)
     if (is.na(i) || is.na(j)) return("  ")
     if (i < 1 || j < 1 || i > 3 || j > 3) return("  ")
-    sprintf("%s%d", intToUtf8(i + 64L), j)
+    sprintf("%s%d", intToUtf8(j + 64L), i)
   }
 
 
