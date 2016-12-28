@@ -19,6 +19,8 @@ set.seed(123)
 
 
 [![Build Status](https://travis-ci.org/kota7/tictactoe.svg?branch=master)](https://travis-ci.org/kota7/tictactoe)
+[![CRAN Status](http://www.r-pkg.org/badges/version/tictactoe)](http://www.r-pkg.org/badges/version/tictactoe)
+
 
 # tictactoe
 Play and learn Tic-Tac-Toe Game on R
@@ -26,7 +28,12 @@ Play and learn Tic-Tac-Toe Game on R
 
 ## installation and import
 
-To install, 
+Install from CRAN 
+```{r, eval=FALSE}
+install.packages("tictactoe")
+```
+
+Or you may install the recent development version from github
 ```{r, eval=FALSE}
 devtools::install_github("kota7/tictactoe")
 ```

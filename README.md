@@ -1,6 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![Build Status](https://travis-ci.org/kota7/tictactoe.svg?branch=master)](https://travis-ci.org/kota7/tictactoe)
+[![Build Status](https://travis-ci.org/kota7/tictactoe.svg?branch=master)](https://travis-ci.org/kota7/tictactoe) [![CRAN Status](http://www.r-pkg.org/badges/version/tictactoe)](http://www.r-pkg.org/badges/version/tictactoe)
 
 tictactoe
 =========
@@ -10,7 +10,13 @@ Play and learn Tic-Tac-Toe Game on R
 installation and import
 -----------------------
 
-To install,
+Install from CRAN
+
+``` r
+install.packages("tictactoe")
+```
+
+Or you may install the recent development version from github
 
 ``` r
 devtools::install_github("kota7/tictactoe")
