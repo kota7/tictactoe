@@ -37,7 +37,7 @@ You can play tic-tac-toe on R console.
 ttt(ttt_human(), ttt_ai())
 ```
 
-This would give you a prompt like:
+This would give you a prompt as below.
 
         A B C
        ------
@@ -48,7 +48,7 @@ This would give you a prompt like:
      Player 1 (no name) to play
     choose move (e.g. A1) > 
 
-Type the move, then the oppoenet will respond. To finish the game in the middle, type "exit".
+Type a move, then the oppoenet will respond. To finish the game in the middle, type "exit".
 
 The default AI player is very week (in fact, he plays randomly). To play against a more sophisticated player, set the `level` argument (from 0 (weekest) to 5 (strongest)).
 
