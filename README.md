@@ -70,7 +70,7 @@ prop.table(table(res))
 Q-learning
 ----------
 
-Q-learning is implemented to train AI players. The code below conducts Q-learninig of 500 episodes for a random AI.
+Q-learning is implemented to train AI players. The code below trains a random AI through Q-learninig of 500 episodes.
 
 ``` r
 p <- ttt_ai()
@@ -86,3 +86,8 @@ prop.table(table(res))
 #>    0    1    2 
 #> 0.15 0.25 0.60
 ```
+
+References
+----------
+
+-   Sutton, Richard S and Barto, Andrew G. Reinforcement Learning: An Introduction. The MIT Press (1998)
