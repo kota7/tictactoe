@@ -44,13 +44,11 @@ This would give you a prompt like:
 
 Type the move, then the oppoenet will respond. To finish the game in the middle, type "exit".
 
-The default AI player is very week (in fact, he plays randomly). To play against a more sophisticated player, set the `level` argument.
+The default AI player is very week (in fact, he plays randomly). To play against a more sophisticated player, set the `level` argument (from 0 (weekest) to 5 (strongest)).
 
 ``` r
 ttt(ttt_human(), ttt_ai(level = 4))
 ```
-
-`level` is from 0 (weekest) to 5 (strongest).
 
 You may play as the second mover by `ttt(ttt_ai(), ttt_human())`. You may watch games between AI players by `ttt(ttt_ai(), ttt_ai())`.
 
