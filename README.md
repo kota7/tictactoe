@@ -1,6 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![Build Status](https://travis-ci.org/kota7/tictactoe.svg?branch=master)](https://travis-ci.org/kota7/tictactoe) [![CRAN Status](http://www.r-pkg.org/badges/version/tictactoe)](http://www.r-pkg.org/badges/version/tictactoe)
+[![Build Status](https://travis-ci.org/kota7/tictactoe.svg?branch=master)](https://travis-ci.org/kota7/tictactoe) [![CRAN Status](http://www.r-pkg.org/badges/version/tictactoe)](http://www.r-pkg.org/badges/version/tictactoe) [![](http://cranlogs.r-pkg.org/badges/tictactoe)](http://cran.rstudio.com/web/packages/tictactoe/index.html)
 
 tictactoe
 =========
