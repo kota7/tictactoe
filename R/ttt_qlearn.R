@@ -20,7 +20,7 @@
 #'
 #' The employed algorithm is Q-learning with epsilon greedy.
 #' For each state \eqn{s}, the player updates its value evaluation by
-#' \deqn{V(s) <- (1-\alpha) V(s) + \alpha \gamma max_s' V(s')}
+#' \deqn{V(s) = (1-\alpha) V(s) + \alpha \gamma max_s' V(s')}
 #' if it is the first player's turn.  If it is the other player's turn, replace
 #' \eqn{max} by \eqn{min}.
 #' Note that \eqn{s'} spans all possible states you can reach from \eqn{s}.
