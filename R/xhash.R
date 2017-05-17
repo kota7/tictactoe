@@ -11,7 +11,7 @@
 #' if any.
 #' @param default_value value to be returned when a state is not recorded in
 #' the table.
-#' @return \code{game_ht} object
+#' @return \code{xhash} object
 #' @export
 xhash <- function(
   convfunc = function(state, ...) state,
