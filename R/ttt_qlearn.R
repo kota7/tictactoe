@@ -32,7 +32,7 @@
 #' Then the player chooses the next action by \eqn{\epsilon}-greedy method;
 #' Follow its policy with probability \eqn{1-\epsilon}, and choose random
 #' action with probability \eqn{\epsilon}.  \eqn{\epsilon} controls
-#' the ratio explorative moves.
+#' the ratio of explorative moves.
 #'
 #' At the end of game, the player set the value of the final state either to
 #' 100 (if the first player wins), -100 (if the second player wins), or
