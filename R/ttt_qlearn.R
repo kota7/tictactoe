@@ -1,4 +1,4 @@
-#' Q-Learning for Train Tic-Tac-Toe AI
+#' Q-Learning for Training Tic-Tac-Toe AI
 #' @description Train a tic-tac-toe AI through Q-learning
 #' @param player AI player to train
 #' @param N number of episode, i.e. training games
