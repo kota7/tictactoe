@@ -34,7 +34,7 @@
 #' action with probability \eqn{\epsilon}.  \eqn{\epsilon} controls
 #' the ratio of explorative moves.
 #'
-#' At the end of game, the player set the value of the final state either to
+#' At the end of a game, the player sets the value of the final state either to
 #' 100 (if the first player wins), -100 (if the second player wins), or
 #' 0 (if draw).
 #'
