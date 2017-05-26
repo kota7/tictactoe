@@ -2,7 +2,7 @@
 % Please edit documentation in R/ttt_qlearn.R
 \name{ttt_qlearn}
 \alias{ttt_qlearn}
-\title{Q-Learning for Train Tic-Tac-Toe AI}
+\title{Q-Learning for Training Tic-Tac-Toe AI}
 \usage{
 ttt_qlearn(player, N = 1000L, epsilon = 0.1, alpha = 0.8, gamma = 0.99,
   simulate = TRUE, sim_every = 250L, N_sim = 1000L, verbose = TRUE)
@@ -39,7 +39,7 @@ value and policy functions.
 
 The employed algorithm is Q-learning with epsilon greedy.
 For each state \eqn{s}, the player updates its value evaluation by
-\deqn{V(s) <- (1-\alpha) V(s) + \alpha \gamma max_s' V(s')}
+\deqn{V(s) = (1-\alpha) V(s) + \alpha \gamma max_s' V(s')}
 if it is the first player's turn.  If it is the other player's turn, replace
 \eqn{max} by \eqn{min}.
 Note that \eqn{s'} spans all possible states you can reach from \eqn{s}.
@@ -51,9 +51,9 @@ the discount factor (earlier win is better than later).
 Then the player chooses the next action by \eqn{\epsilon}-greedy method;
 Follow its policy with probability \eqn{1-\epsilon}, and choose random
 action with probability \eqn{\epsilon}.  \eqn{\epsilon} controls
-the ratio explorative moves.
+the ratio of explorative moves.
 
-At the end of game, the player set the value of the final state either to
+At the end of a game, the player sets the value of the final state either to
 100 (if the first player wins), -100 (if the second player wins), or
 0 (if draw).
 
@@ -72,4 +72,3 @@ o <- ttt_qlearn(p, N = 200)
 \references{
 Sutton, Richard S and Barto, Andrew G. Reinforcement Learning: An Introduction. The MIT Press (1998)
 }
-

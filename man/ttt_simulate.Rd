@@ -29,4 +29,3 @@ Simulate Tic-Tac-Toe Games between AIs
 res <- ttt_simulate(ttt_ai(), ttt_ai())
 prop.table(table(res))
 }
-

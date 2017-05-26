@@ -24,4 +24,3 @@ equivalent_states_actions(state, action)
 \description{
 Returns a set of equivalent states and actions
 }
-

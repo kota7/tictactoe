@@ -37,4 +37,3 @@ The policy function maps a game state to a set of
 optimal moves in light of the value evaluation.
 The functions have been trained through the Q-learning.
 }
-

@@ -18,4 +18,3 @@ x$play(3)
 x$play(5)
 x$show_board()
 }
-

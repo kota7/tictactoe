@@ -23,9 +23,8 @@ if any.}
 the table.}
 }
 \value{
-\code{game_ht} object
+\code{xhash} object
 }
 \description{
 Create Hash Table for Generic Keys
 }
-

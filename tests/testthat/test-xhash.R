@@ -47,7 +47,7 @@ test_that("integer state", {
     expect_true(haskey(x, i))
   }
 
-  i <- nextElem(iter)
+  iter <- isubset(5)
   while (hasNext(iter))
   {
     i <- nextElem(iter)

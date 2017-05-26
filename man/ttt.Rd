@@ -40,4 +40,3 @@ ttt(ttt_human(), ttt_random())
 \code{\link{ttt_ai}}, \code{\link{ttt_human}},
 \code{\link{ttt_simulate}}
 }
-

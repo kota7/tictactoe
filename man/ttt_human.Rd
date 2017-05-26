@@ -15,4 +15,3 @@ ttt_human(name = "no name")
 \description{
 Create an human tic-tac-toe player
 }
-
