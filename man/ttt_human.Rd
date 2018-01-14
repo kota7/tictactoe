@@ -11,7 +11,32 @@ ttt_human(name = "no name")
 }
 \value{
 \code{ttt_human} object
+
+\strong{Fields}
+\describe{
+  \item{\code{name}}{Player name}
+}
+
+\strong{Methods}
+\describe{
+  \item{\code{getmove(game, prompt = "choose move (e.g. A1) > ", ...)}}{Communicate with users to type in the next move.
+
+    \emph{Input:}
+    \itemize{
+      \item{\code{game}: \code{\link{ttt_game}} object}
+      \item{\code{prompt}: }
+    }
+
+    \emph{Output:} A move
+  }
+}
 }
 \description{
 Create an human tic-tac-toe player
+}
+\examples{
+p <- ttt_human()
+\dontrun{
+p$getmove()
+}
 }
