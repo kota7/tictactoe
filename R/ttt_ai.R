@@ -2,7 +2,6 @@
 #' @description Create an AI tic-tac-toe game player
 #' @param name player name
 #' @param level AI strength. must be Integer 0 (weekest) to 5 (strongest)
-#' @return \code{ttt_ai} object
 #' @details \code{level} argument controls the strength of AI, from
 #' 0 (weekest) to 5 (strongest).
 #' \code{ttt_random} is an alias of \code{ttt_ai(level = 0)}.
@@ -19,6 +18,13 @@
 #' optimal moves in light of the value evaluation.
 #' The functions have been trained through the Q-learning.
 #' @export
+#' @examples
+#' \dontrun{
+#' game <- ttt_game()
+#' p <- ttt_ai()
+#' p$getmove(game)
+#' }
+#' @return \code{ttt_ai} object
 ttt_ai <- function(name = "ttt AI", level = 0L)
 {
   stopifnot(is.numeric(level))

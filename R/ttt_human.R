@@ -3,8 +3,8 @@
 #' @param name player name
 #' @export
 #' @examples
-#' p <- ttt_human()
 #' \dontrun{
+#' p <- ttt_human()
 #' p$getmove()
 #' }
 #' @return \code{ttt_human} object

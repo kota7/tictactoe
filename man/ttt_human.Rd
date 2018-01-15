@@ -24,10 +24,10 @@ ttt_human(name = "no name")
     \emph{Input:}
     \itemize{
       \item{\code{game}: \code{\link{ttt_game}} object}
-      \item{\code{prompt}: }
+      \item{\code{prompt}: prompt message}
     }
 
-    \emph{Output:} A move
+    \emph{Output:} a character of a move
   }
 }
 }
@@ -35,8 +35,7 @@ ttt_human(name = "no name")
 Create an human tic-tac-toe player
 }
 \examples{
-p <- ttt_human()
 \dontrun{
-p$getmove()
-}
+p <- ttt_human()
+p$getmove()}
 }
