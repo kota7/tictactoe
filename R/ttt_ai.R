@@ -21,10 +21,31 @@
 #' @examples
 #' \dontrun{
 #' game <- ttt_game()
-#' p <- ttt_ai()
+#' p <- ttt_ai(level=3)
 #' p$getmove(game)
 #' }
 #' @return \code{ttt_ai} object
+#'
+#' \strong{Fields}
+#' \describe{
+#'   \item{\code{name}}{Player name}
+#'   \item{\code{level}}{Strength (0 to 5)}
+#'   \item{\code{policy_func}}{\code{\link{xhash}} object that maps a game state to  moves}
+#'   \item{\code{value_func}}{\code{\link{xhash}} object that maps a game state to a value}
+#' }
+#'
+#' \strong{Methods}
+#' \describe{
+#'   \item{\code{getmove(game, ...)}}{Returns a move considered as optimal.
+#'
+#'     \emph{Input:}
+#'     \itemize{
+#'       \item{\code{game}: \code{\link{ttt_game}} object}
+#'     }
+#'
+#'     \emph{Output:} a move
+#'   }
+#' }
 ttt_ai <- function(name = "ttt AI", level = 0L)
 {
   stopifnot(is.numeric(level))

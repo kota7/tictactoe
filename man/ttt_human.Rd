@@ -37,5 +37,6 @@ Create an human tic-tac-toe player
 \examples{
 \dontrun{
 p <- ttt_human()
-p$getmove()}
+p$getmove()
+}
 }
