@@ -59,9 +59,7 @@ optimal moves in light of the value evaluation.
 The functions have been trained through the Q-learning.
 }
 \examples{
-\dontrun{
 game <- ttt_game()
 p <- ttt_ai(level=3)
 p$getmove(game)
-}
 }

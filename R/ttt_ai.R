@@ -19,11 +19,9 @@
 #' The functions have been trained through the Q-learning.
 #' @export
 #' @examples
-#' \dontrun{
 #' game <- ttt_game()
 #' p <- ttt_ai(level=3)
 #' p$getmove(game)
-#' }
 #' @return \code{ttt_ai} object
 #'
 #' \strong{Fields}
