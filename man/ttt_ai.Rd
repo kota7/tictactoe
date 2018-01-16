@@ -16,6 +16,27 @@ ttt_random(name = "random AI")
 }
 \value{
 \code{ttt_ai} object
+
+\strong{Fields}
+\describe{
+  \item{\code{name}}{Player name}
+  \item{\code{level}}{Strength (0 to 5)}
+  \item{\code{policy_func}}{\code{\link{xhash}} object that maps a game state to  moves}
+  \item{\code{value_func}}{\code{\link{xhash}} object that maps a game state to a value}
+}
+
+\strong{Methods}
+\describe{
+  \item{\code{getmove(game, ...)}}{Returns a move considered as optimal.
+
+    \emph{Input:}
+    \itemize{
+      \item{\code{game}: \code{\link{ttt_game}} object}
+    }
+
+    \emph{Output:} a move
+  }
+}
 }
 \description{
 Create an AI tic-tac-toe game player
@@ -36,4 +57,9 @@ to the evaluation from the first player's viewpoint.
 The policy function maps a game state to a set of
 optimal moves in light of the value evaluation.
 The functions have been trained through the Q-learning.
+}
+\examples{
+game <- ttt_game()
+p <- ttt_ai(level=3)
+p$getmove(game)
 }
