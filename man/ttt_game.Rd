@@ -8,6 +8,103 @@ ttt_game()
 }
 \value{
 \code{ttt_game} object
+
+\strong{Fields}
+\describe{
+  \item{\code{state}}{3 x 3 matrix of current state}
+  \item{\code{nextmover}, \code{prevmover}}{Next and previous mover (1 or 2)}
+  \item{\code{history}}{N x 2 matrix of game history, each row represents a move by (player, position)}
+}
+
+\strong{Methods}
+\describe{
+  \item{\code{play(position, ...)}}{Play a move. At default, play is made by the next mover, but can be changed by setting the `nextmover` argument.
+
+    \emph{Input:}
+    \itemize{
+      \item{\code{position}: position to play}
+      \item{\code{...}: Variables to overload}
+    }
+
+    \emph{Output:} \code{TRUE} iff a move is legal and game has not been over.
+  }
+  \item{\code{undo()}}{Undo the previous play
+
+    \emph{Input:} None
+
+    \emph{Output:} \code{NULL}
+  }
+  \item{\code{is_legal(position)}}{Check if the position is a legal move
+
+    \emph{Input:}
+    \itemize{
+      \item{\code{position}: position to check}
+    }
+
+    \emph{Output:} \code{TRUE} if the given position is a legal move
+  }
+  \item{\code{legal_moves()}}{Returns all legal moves
+
+    \emph{Input: None}
+
+    \emph{Output:} Integer vector of legal moves
+  }
+  \item{\code{check_win(player)}}{Check if the given player has won.
+
+    \emph{Input:}
+    \itemize{
+      \item{\code{player}: player (1 or 2)}
+      \item{\code{...}: Variables to be overloaded}
+    }
+
+    \emph{Output:} \code{TRUE} iff the given player has won
+  }
+  \item{\code{check_result()}}{Check the result from the board state
+
+    \emph{Input:} None
+
+    \emph{Output:}
+    \itemize{
+      \item{\code{-1}: undetermined yet}
+      \item{\code{0}: draw}
+      \item{\code{1}: won by player 1}
+      \item{\code{2}: won by player 2}
+    }
+  }
+  \item{\code{next_state(position, ...)}}{Returns the hypothetical next state without changing the \code{state} field.
+
+    \emph{Input:}
+    \itemize{
+      \item{\code{position}: position to play}
+    }
+
+    \emph{Output:} \code{state} matrix
+  }
+  \item{\code{show_board()}}{print the boad on consle
+
+    \emph{Input: None}
+
+    \emph{Output:} \code{NULL}
+  }
+  \item{\code{to_index(position)}}{Convert a position to the index
+
+    \emph{Input:}
+    \itemize{
+      \item{\code{position}: a position}
+    }
+
+    \emph{Output:} an integer 1 to 9, or 0 for a invalid position
+  }
+  \item{\code{index_to_str(position)}}{Convert a position to a location representation in the form of "A1"
+
+    \emph{Input:}
+    \itemize{
+      \item{\code{position}: a position}
+    }
+
+    \emph{Output:} a character
+  }
+}
 }
 \description{
 Object that encapsulates a tic-tac-toe game.
@@ -16,5 +113,8 @@ Object that encapsulates a tic-tac-toe game.
 x <- ttt_game()
 x$play(3)
 x$play(5)
+x$show_board()
+
+x$undo()
 x$show_board()
 }

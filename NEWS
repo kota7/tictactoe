@@ -1,0 +1,27 @@
+tictactoe v0.2.3 (2017-01-17)
+================
+
+* Added `undo` method to `ttt_game`
+* Added documentation for classes
+
+
+
+tictactoe v0.2.2 (2017-05-26)
+================
+
+* Minor update on documentation
+
+
+
+tictactoe v0.2.1 (2017-05-17)
+================
+
+* Bug fix in game transition controls
+* Enhancement of learning algorithm
+
+
+tictactoe v0.2.0 (2016-12-28)
+================
+
+* Tic-tac-toe game on console
+* Q-learning to train AIs

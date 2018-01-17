@@ -5,6 +5,61 @@ library(combiter)
 context("ttt game")
 
 
+test_that("plays and undos", {
+  game <- ttt_game()
+  expect_true(all(game$state == 0))
+  expect_equal(game$nextmover, 1)
+  expect_equal(game$prevmover, 2)
+  expect_equal(nrow(game$history), 0)
+  expect_equal(game$result, -1)
+
+  p1 <- 2
+  game$play(p1)
+  expect_true(all(game$state[-p1] == 0))
+  expect_equal(game$state[p1], 1)
+  expect_equal(game$nextmover, 2)
+  expect_equal(game$prevmover, 1)
+  expect_equal(nrow(game$history), 1)
+  expect_equal(game$result, -1)
+
+  p2 <- 5
+  game$play(p2)
+  expect_true(all(game$state[-c(p1, p2)] == 0))
+  expect_equal(game$state[p2], 2)
+  expect_equal(game$nextmover, 1)
+  expect_equal(game$prevmover, 2)
+  expect_equal(nrow(game$history), 2)
+  expect_equal(game$result, -1)
+
+  game$undo()
+  expect_equal(game$state[p2], 0)
+  expect_equal(game$nextmover, 2)
+  expect_equal(game$prevmover, 1)
+  expect_equal(nrow(game$history), 1)
+  expect_equal(game$result, -1)
+
+  # play until win
+  game$play(5)
+  expect_equal(game$result, -1)
+  game$play(1)
+  expect_equal(game$result, -1)
+  game$play(6)
+  expect_equal(game$result, -1)
+  game$play(3)
+  expect_equal(game$result, 1)
+
+  # undo
+  game$undo()
+  expect_equal(game$result, -1)
+
+  game$play(9)
+  expect_equal(game$result, -1)
+  game$play(4)
+  expect_equal(game$result, 2)
+
+})
+
+
 test_that("invalid ai", {
   expect_error(ttt(1, 2))
   expect_error(ttt(structure(1, class = "ttt_player"),

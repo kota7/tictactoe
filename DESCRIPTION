@@ -1,7 +1,7 @@
 Package: tictactoe
 Type: Package
 Title: Tic-Tac-Toe Game
-Version: 0.2.2
+Version: 0.2.3
 Authors@R: c(
   person("Kota", "Mori", email = "kmori05@gmail.com", role = c("aut", "cre"))
   )
