@@ -19,6 +19,7 @@ set.seed(123)
 
 
 [![Build Status](https://travis-ci.org/kota7/tictactoe.svg?branch=master)](https://travis-ci.org/kota7/tictactoe)
+[![Build status](https://ci.appveyor.com/api/projects/status/4pb96vjh7to9solg/branch/master?svg=true)](https://ci.appveyor.com/project/kota7/tictactoe/branch/master)
 [![CRAN Status](https://www.r-pkg.org/badges/version/tictactoe)](https://www.r-pkg.org/badges/version/tictactoe)
 [![](http://cranlogs.r-pkg.org/badges/tictactoe)](https://cran.r-project.org/package=tictactoe)
 
