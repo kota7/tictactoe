@@ -4,5 +4,6 @@
 ^README-.*\.png$
 
 .travis.yml
+appveyor.yml
 
 examples
