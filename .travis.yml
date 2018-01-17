@@ -10,7 +10,7 @@ r:
   
 os:
   - linux
-  - osx
+  #- osx   # build of osx is extremely slow, disabled
 
 matrix:
   exclude:
